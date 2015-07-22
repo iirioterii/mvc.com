@@ -1,0 +1,23 @@
+'Site\FrontEndBundle\Entity\Tags':
+    type: entity
+    table: tags
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '255'
+        slug:
+            type: string
+            length: 255
+        created:
+            type: datetime
+    manyToMany:
+        posts:
+            targetEntity: Post
+            mappedBy: tags        
+    lifecycleCallbacks: {  }

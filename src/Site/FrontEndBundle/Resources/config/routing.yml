@@ -1,0 +1,24 @@
+site_front_end_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: SiteFrontEndBundle:Default:index }
+    
+main_page:
+    path: /
+    defaults: { _controller: SiteFrontEndBundle:Default:main }
+
+about_page:
+    path: /about
+    defaults: { _controller: SiteFrontEndBundle:Default:about }
+    
+training_page:
+    path: /training
+    defaults: { _controller: SiteFrontEndBundle:Default:training }
+
+gallery_page:
+    path: /gallery
+    defaults: { _controller: SiteFrontEndBundle:Default:gallery }
+   
+contacts_page:
+    path: /contacts
+    defaults: { _controller: SiteFrontEndBundle:Default:contacts }
+    

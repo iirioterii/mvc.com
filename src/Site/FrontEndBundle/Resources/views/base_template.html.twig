@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>
+{% block title %} {% endblock %}
+    </title>
+    
+{% block css  %}
+<link href="{{ asset('/bundles/sitefrontend/css/bootstrap.css') }}" rel="stylesheet"/>
+<link href="{{ asset('/bundles/sitefrontend/css/style.css') }}" rel="stylesheet" type="text/css" media="all"/>
+<link rel="stylesheet" href="{{ asset('/bundles/sitefrontend/css/flexslider.css') }}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{ asset('/bundles/sitefrontend/css/swipebox.css') }}"/>
+<link href='http://fonts.googleapis.com/css?family=Raleway:500,600,700,100,800,900,400,300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Voltaire' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block js %}
+<script src="{{ asset('/bundles/sitefrontend/js/jquery.flexslider.js') }}"></script>
+<script src="{{ asset('/bundles/sitefrontend/js/jquery.min.js') }}"></script>
+<script src="{{ asset('/bundles/sitefrontend/js/jquery.swipebox.min.js') }}"></script>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="text/javascript">
+			jQuery(function($) {
+				$(".swipebox").swipebox();
+			});
+</script>
+{% endblock %}
+
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Сайт персонального тренера Евгения Надеждина Чемпиона мира и Европы по фитнесу WFF. " />
+<!-- //for-mobile-apps -->		
+
+</head>
+
+<body>
+
+<!--header-->
+	<div class="banner banner2">
+		<div class="container">
+			<div class="banner-right-text">
+				<h3>Телефоны:<br/><span>(099)</span><i>254 81 92 </i><br/><span>(093)</span><i>060 76 62 </i></h3>
+			</div>
+                        {%block top_menu %}{% endblock %}
+			   <!-- script-for-menu -->
+		 <script>
+				$("span.menu").click(function(){
+					$(".top-menu ul").slideToggle("slow" , function(){
+					});
+				});
+		 </script>
+		 <!-- script-for-menu -->	 
+		</div>
+						 <div class="middl-text2">
+			  <a href="/"><h2>&nbsp</h2></a>
+			  </div>
+	</div>
+
+{% block content %} {% endblock %}
+    <div class="fotter">
+	 <div class="container">
+		<p class="fotter-info">Коопирайт &copy; Все права защищены | Разработано <a href="http://rioter.com/">Yuriy Reva</a></p>
+
+		 <div class="clearfix"> </div>
+	 </div>
+    </div>
+</body>   
+</html>
+    
