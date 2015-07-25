@@ -141,6 +141,10 @@ class Post
     {
         return $this->created;
     }
+    
+     public function __toString() {
+     return $this->title?$this->title:'Новая запись';
+      }
 
     /**
      * Set slug
@@ -163,5 +167,50 @@ class Post
     public function getSlug()
     {
         return $this->slug;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $tags;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add tags
+     *
+     * @param \Site\FrontEndBundle\Entity\Tags $tags
+     * @return Post
+     */
+    public function addTag(\Site\FrontEndBundle\Entity\Tags $tags)
+    {
+        $this->tags[] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Remove tags
+     *
+     * @param \Site\FrontEndBundle\Entity\Tags $tags
+     */
+    public function removeTag(\Site\FrontEndBundle\Entity\Tags $tags)
+    {
+        $this->tags->removeElement($tags);
+    }
+
+    /**
+     * Get tags
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTags()
+    {
+        return $this->tags;
     }
 }

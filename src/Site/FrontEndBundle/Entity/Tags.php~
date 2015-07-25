@@ -112,4 +112,49 @@ class Tags
     public function __toString() {
      return $this->name?$this->name:'Новая запись';
       }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $posts;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->posts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add posts
+     *
+     * @param \Site\FrontEndBundle\Entity\Post $posts
+     * @return Tags
+     */
+    public function addPost(\Site\FrontEndBundle\Entity\Post $posts)
+    {
+        $this->posts[] = $posts;
+
+        return $this;
+    }
+
+    /**
+     * Remove posts
+     *
+     * @param \Site\FrontEndBundle\Entity\Post $posts
+     */
+    public function removePost(\Site\FrontEndBundle\Entity\Post $posts)
+    {
+        $this->posts->removeElement($posts);
+    }
+
+    /**
+     * Get posts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
 }

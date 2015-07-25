@@ -4,27 +4,19 @@ namespace Site\FrontEndBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class MainController extends Controller
 {
     public function indexAction($name)
     {
         return $this->render('SiteFrontEndBundle:Default:index.html.twig', array('name' => $name));
     }
-    
-    public function mainAction() 
+     
+    public function aboutAction($slug) 
     {
-        $em=$this->get('doctrine.orm.entity_manager');
-        dump($em);
-        $posts=$em->getRepository('SiteFrontEndBundle:Post')
-                  ->findAll();
-        $tags=$em->getRepository('SiteFrontEndBundle:Tags')
-                  ->findAll();
-        return $this->render('SiteFrontEndBundle::main.html.twig', array('posts'=>$posts));
-    }
-    
-    public function aboutAction() 
-    {
-        return $this->render('SiteFrontEndBundle::about.html.twig');
+        $posts=  $this->get('TagsManager')->getPostsByTag($slug);
+        dump($posts);
+        return $this->render('SiteFrontEndBundle::about.html.twig', array('posts'=>$posts));
+        
     }
     
     public function trainingAction() 

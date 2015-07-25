@@ -5,9 +5,9 @@ namespace Site\FrontEndBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- *  Tags
+ * Category
  */
-class Tags
+class Category
 {
     /**
      * @var integer
@@ -20,14 +20,14 @@ class Tags
     private $name;
 
     /**
-     * @var string
-     */
-    private $slug;
-
-    /**
      * @var \DateTime
      */
     private $created;
+
+    /**
+     * @var string
+     */
+    private $slug;
 
 
     /**
@@ -44,7 +44,7 @@ class Tags
      * Set name
      *
      * @param string $name
-     * @return Tags
+     * @return Category
      */
     public function setName($name)
     {
@@ -64,10 +64,37 @@ class Tags
     }
 
     /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Category
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+    
+    public function __toString() {
+    return $this->name?$this->name:'Новая запись';
+      }
+      
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
      * Set slug
      *
      * @param string $slug
-     * @return Tags
+     * @return Category
      */
     public function setSlug($slug)
     {
@@ -85,33 +112,6 @@ class Tags
     {
         return $this->slug;
     }
-
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     * @return Tags
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-
-        return $this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return \DateTime 
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-    
-    public function __toString() {
-    return $this->name?$this->name:'Новая запись';
-      }
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
@@ -129,7 +129,7 @@ class Tags
      * Add posts
      *
      * @param \Site\FrontEndBundle\Entity\Post $posts
-     * @return Tags
+     * @return Category
      */
     public function addPost(\Site\FrontEndBundle\Entity\Post $posts)
     {

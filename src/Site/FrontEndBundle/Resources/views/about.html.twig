@@ -7,7 +7,7 @@
 				 	<span class="menu"> </span>
 					<ul class="nav navbar-nav">
 						<li><a href="{{ url('main_page') }}">Главная <span class="sr-only">(current)</span></a></li>
-						<li><a class="active" href="{{ url('about_page') }}">Обо мне</a></li>
+{#						<li><a class="active" href="{{ url('about_page') }}">Обо мне</a></li>#}
 						<li><a href="{{ url('training_page') }}">Тренировки</a></li>
 						<li><a href="{{ url('gallery_page') }}">Галерея</a></li>
 						<li><a href="{{ url('contacts_page') }}">Контакты</a></li>
@@ -16,6 +16,9 @@
                                 </div>
 {% endblock %}
 {% block content %}
+    {% for post in posts %}
+        {{post.title}}
+    {% endfor %}
 <div class="abouts-page">
 	<div class="container">
 		<h5>ОБО МНЕ</h5>

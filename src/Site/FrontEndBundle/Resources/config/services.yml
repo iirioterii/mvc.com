@@ -24,4 +24,19 @@ services:
         calls:
             - [ setTranslationDomain, [SiteFrontEndBundle]]
             
+    sonata.admin.category:
+        class: Site\FrontEndBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Добавление категорий", label: "Создать" }
+        arguments:
+            - ~
+            - Site\FrontEndBundle\Entity\Category
+            - ~
+        calls:
+            - [ setTranslationDomain, [SiteFrontEndBundle]]
+    
+    tags_manager:
+        class: Site\FrontEndBundle\Service\TagsManager
+        arguments:
+            - @service_container
     

@@ -1,24 +1,26 @@
 site_front_end_homepage:
     path:     /hello/{name}
-    defaults: { _controller: SiteFrontEndBundle:Default:index }
+    defaults: { _controller: SiteFrontEndBundle:Main:index }
     
 main_page:
-    path: /
-    defaults: { _controller: SiteFrontEndBundle:Default:main }
+    path: /{page}
+    defaults: { _controller: SiteFrontEndBundle:News:main,page:1 }
+    requirements: 
+        page: \d+
 
 about_page:
-    path: /about
-    defaults: { _controller: SiteFrontEndBundle:Default:about }
+    path: /about/{slug}
+    defaults: { _controller: SiteFrontEndBundle:Main:about }
     
 training_page:
     path: /training
-    defaults: { _controller: SiteFrontEndBundle:Default:training }
+    defaults: { _controller: SiteFrontEndBundle:Main:training }
 
 gallery_page:
     path: /gallery
-    defaults: { _controller: SiteFrontEndBundle:Default:gallery }
+    defaults: { _controller: SiteFrontEndBundle:Main:gallery }
    
 contacts_page:
     path: /contacts
-    defaults: { _controller: SiteFrontEndBundle:Default:contacts }
+    defaults: { _controller: SiteFrontEndBundle:Main:contacts }
     

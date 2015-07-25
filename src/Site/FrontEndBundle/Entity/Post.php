@@ -213,4 +213,32 @@ class Post
     {
         return $this->tags;
     }
+    /**
+     * @var \Site\FrontEndBundle\Entity\Category
+     */
+    private $category;
+
+
+    /**
+     * Set category
+     *
+     * @param \Site\FrontEndBundle\Entity\Category $category
+     * @return Post
+     */
+    public function setCategory(\Site\FrontEndBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Site\FrontEndBundle\Entity\Category 
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
 }

@@ -1,6 +1,7 @@
 Site\FrontEndBundle\Entity\Post:
     type: entity
     table: post
+    repositoryClass: Site\FrontEndBundle\Repository\PostRepository  
     id:
         id:
             type: integer
@@ -33,6 +34,13 @@ Site\FrontEndBundle\Entity\Post:
                 inverseJoinColumns:
                     tag_id:
                         referencedColumnName: id
+    manyToOne:
+        category:
+            targetEntity: Category
+            inversedBy: posts
+            joinColumn:
+                name: cat_id
+                referencedColumnName: id
     lifecycleCallbacks: {  }
 
             
