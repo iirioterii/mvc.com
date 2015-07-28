@@ -16,8 +16,7 @@
                                 </div>
 {% endblock %}
 {% block content %} 
-
-
+    
 {% if posts is not empty %}
 <div class="find-dog">
 	<div class="container relative">
@@ -36,7 +35,7 @@
                                             Теги: 
                                            {% endif%}
                                            {% for tag in post.getTags %}
-                                               <a href="/{#{{url('about', {slug:tag.slug})}}#}">{{ tag.name }} &nbsp;</a>
+                                               <a href="/">{{ tag.name }} &nbsp;</a>
                                            {% endfor %}
                                         </p>
                                         <p>{{post.getCategory}}</p>
@@ -48,12 +47,13 @@
                     {% endfor %}
 		</div>
 		<div class="clearfix"> </div>
-                 <p align="center">{{ knp_pagination_render(posts, 'SiteFrontEndBundle::knp_pag_bs.html.twig') }}</p>
+                
 	</div>
 	</div>
                 
 </div>
 {% endif %}
+    
 <div class="about">
 	<div class="container relative">
 		<h4>Обо мне</h4>

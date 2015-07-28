@@ -16,44 +16,9 @@
                                 </div>
 {% endblock %}
 {% block content %} 
+    
 
-
-{% if posts is not empty %}
-<div class="find-dog">
-	<div class="container relative">
-		<h4>НОВОСТИ</h4>
-		<div class="benefit">
-		<div class="box1">
-                    {% for  post in posts %}
-			<div class="col-md-4 row_10">
-				<ul class="service_grid">
-   	   			   <i class="s1"> </i>
-   	   			   <li class="desc">
-   	   				<h3>{{ post.title }}</h3>
-                                        <p>{{ post.created|localizeddate('none', 'none', 'ru_RU', null, "d MMMM Y") }}</p>
-                                        <p>{{ post.preview }}</p>
-                                        <p>{% if post.tags is not empty %}
-                                            Теги: 
-                                           {% endif%}
-                                           {% for tag in post.getTags %}
-                                               <a href="/{#{{url('about', {slug:tag.slug})}}#}">{{ tag.name }} &nbsp;</a>
-                                           {% endfor %}
-                                        </p>
-                                        <p>{{post.getCategory}}</p>
-   	   			   </li>
-                    
-   	   			   <div class="clearfix"> </div>
-   	   			</ul>
-			</div>
-                    {% endfor %}
-		</div>
-		<div class="clearfix"> </div>
-                 <p align="center">{{ knp_pagination_render(posts, 'SiteFrontEndBundle::knp_pag_bs.html.twig') }}</p>
-	</div>
-	</div>
-                
-</div>
-{% endif %}
+    
 <div class="about">
 	<div class="container relative">
 		<h4>Обо мне</h4>

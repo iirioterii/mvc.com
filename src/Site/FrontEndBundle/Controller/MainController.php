@@ -11,11 +11,9 @@ class MainController extends Controller
         return $this->render('SiteFrontEndBundle:Default:index.html.twig', array('name' => $name));
     }
      
-    public function aboutAction($slug) 
+    public function aboutAction() 
     {
-        $posts=  $this->get('TagsManager')->getPostsByTag($slug);
-        dump($posts);
-        return $this->render('SiteFrontEndBundle::about.html.twig', array('posts'=>$posts));
+        return $this->render('SiteFrontEndBundle::about.html.twig');
         
     }
     

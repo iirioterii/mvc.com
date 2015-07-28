@@ -8,8 +8,16 @@ main_page:
     requirements: 
         page: \d+
 
+posts_by_slug:
+    path: /posts/{slug}
+    defaults: { _controller: SiteFrontEndBundle:News:posts }
+    
+tags_by_slug:
+    path: /posts/tags/{slug}
+    defaults: { _controller: SiteFrontEndBundle:News:tagsBySlug }
+    
 about_page:
-    path: /about/{slug}
+    path: /about
     defaults: { _controller: SiteFrontEndBundle:Main:about }
     
 training_page:
