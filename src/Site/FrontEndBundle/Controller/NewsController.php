@@ -23,7 +23,7 @@ class NewsController extends Controller
     
     public function tagsBySlugAction($slug)
     {
-        $posts=  $this->get('TagsManager')->getPostsByTag($slug);
+        $posts=  $this->get('tags_manager')->getPostsByTag($slug);
         dump($posts);
         return $this->render('SiteFrontEndBundle::news_by_tag.html.twig', array('posts'=>$posts));
     }
@@ -31,10 +31,9 @@ class NewsController extends Controller
         public function postsAction($slug)
     {
        $em=$this->get('doctrine.orm.entity_manager');
-       $posts=$em->getRepository('SiteFrontEndBundle:Post')
+       $post=$em->getRepository('SiteFrontEndBundle:Post')
                  ->findOneBySlug($slug);
-         dump($posts);
-        return $this->render('SiteFrontEndBundle::post_by_slug.html.twig');
+        return $this->render('SiteFrontEndBundle::post_by_slug.html.twig', array('post'=>$post));
     }
     
 }
