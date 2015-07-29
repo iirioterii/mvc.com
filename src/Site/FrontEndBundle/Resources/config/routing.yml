@@ -4,18 +4,26 @@ site_front_end_homepage:
     
 main_page:
     path: /{page}
-    defaults: { _controller: SiteFrontEndBundle:News:main,page:1 }
+    defaults: { _controller: SiteFrontEndBundle:News:main, page:1 }
     requirements: 
         page: \d+
 
-posts_by_slug:
-    path: /posts/{slug}
-    defaults: { _controller: SiteFrontEndBundle:News:posts }
-    
-tags_by_slug:
-    path: /posts/tags/{slug}
-    defaults: { _controller: SiteFrontEndBundle:News:tagsBySlug }
-    
+post_by_slug:
+    path: /post/{slug}
+    defaults: { _controller: SiteFrontEndBundle:News:post }
+        
+posts_by_tag:
+    path: /posts/tags/{slug}/{page}
+    defaults: { _controller: SiteFrontEndBundle:News:postsByTag, page:1 }
+    requirements: 
+        page: \d+
+
+posts_by_cat:
+    path: /posts/category/{slug}/{page}
+    defaults: { _controller: SiteFrontEndBundle:News:postsByCat, page:1}
+    requirements:
+        page: \d+
+        
 about_page:
     path: /about
     defaults: { _controller: SiteFrontEndBundle:Main:about }

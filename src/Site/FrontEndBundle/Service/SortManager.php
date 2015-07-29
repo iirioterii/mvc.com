@@ -2,7 +2,7 @@
 
 namespace Site\FrontEndBundle\Service;
 
-class TagsManager 
+class SortManager 
 {
     protected $container;
     
@@ -14,13 +14,28 @@ class TagsManager
     /*
      * Get Posts by Slug(string)
      */
-    public function getPostsByTag($Slug) {
+    public function getPostsByTag($slug)
+    {
         $posts=  $this->getEm()
                       ->getRepository('SiteFrontEndBundle:Tags')
-                      ->findOneBySlug($Slug)
+                      ->findOneBySlug($slug)
                       ->getPosts();
-        return $posts;
+            return $posts;
         
+    }
+    
+    /*
+     * Get Posts by Category(string)
+     */
+    public function getPostsByCategory($slug)
+    {
+        $posts= $this->getEm()
+                     ->getRepository('SiteFrontEndBundle:Category')
+                     ->findOneBySlug($slug)
+                     ->getPosts();
+             dump($posts);
+                     
+            return $posts;
     }
     
     /*

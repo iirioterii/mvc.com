@@ -29,17 +29,18 @@
 				<ul class="service_grid">
    	   			   <i class="s1"> </i>
    	   			   <li class="desc">
-                                       <h3><a href="{{url('posts_by_slug',{'slug':post.slug})}}">{{ post.title }}</a></h3>
+                                       <h3><a href="{{url('post_by_slug', {'slug':post.slug})}}">{{ post.title }}</a></h3>
                                         <p>{{ post.created|localizeddate('none', 'none', 'ru_RU', null, "d MMMM Y") }}</p>
                                         <p>{{ post.preview }}</p>
                                         <p>{% if post.tags is not empty %}
                                             Теги: 
                                            {% endif%}
                                            {% for tag in post.getTags %}
-                                               <a href="{{url('tags_by_slug', {'slug':tag.slug})}}">{{ tag.name }} &nbsp;</a>
+                                               <a href="{{url('posts_by_tag', {'slug':tag.slug})}}">{{ tag.name }} &nbsp;</a>
                                            {% endfor %}
-                                        </p>
-                                        <p>{{post.getCategory}}</p>
+                                           {{dump(post)}}
+                                        </p>{{dump(post.getCategory)}}
+                                        <p><a href="{{url('posts_by_cat', {'slug':post.slug})}}">{{post.getCategory}}</a></p>
    	   			   </li>
                     
    	   			   <div class="clearfix"> </div>

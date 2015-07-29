@@ -35,8 +35,8 @@ services:
         calls:
             - [ setTranslationDomain, [SiteFrontEndBundle]]
     
-    tags_manager:
-        class: Site\FrontEndBundle\Service\TagsManager
+    sort_manager:
+        class: Site\FrontEndBundle\Service\SortManager
         arguments:
             - @service_container
     
