@@ -1,0 +1,10 @@
+Site\FrontEndBundle\Entity\Groups:
+    type: entity
+    table: groups
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }

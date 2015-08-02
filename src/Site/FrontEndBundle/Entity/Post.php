@@ -3,6 +3,9 @@
 namespace Site\FrontEndBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Post
@@ -39,7 +42,12 @@ class Post
      */
     private $slug;
 
-
+    public static function loadValidatorMetadata(ClassMetadata $metadata){
+        $metadata->addPropertyConstraint('title', new Assert\Length(array(
+            'min'=>1,
+            'max'=>6,
+        )));
+    }
     /**
      * Get id
      *
@@ -86,7 +94,7 @@ class Post
         return $this;
     }
 
-    /**
+    /**Validator
      * Get preview
      *
      * @return string 

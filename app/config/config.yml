@@ -65,11 +65,13 @@ doctrine:
         #   2. Uncomment database_path in parameters.yml.dist
         #   3. Uncomment next line:
         #     path:     "%database_path%"
+        types:
+            json: Sonata\Doctrine\Types\JsonType
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        naming_strategy: doctrine.orm.naming_strategy.underscore
-        auto_mapping: true
+        auto_mapping: auto
+
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -84,5 +86,24 @@ sonata_block:
     default_contexts: [cms]
     blocks:
         # Enable the SonataAdminBundle block
+        sonata.user.block.menu:    # used to display the menu in profile pages
+        sonata.user.block.account: # used to display menu option (login option)
         sonata.admin.block.admin_list:
             contexts:   [admin]
+
+sonata_user:
+    security_acl: true
+    manager_type: orm # can be orm or mongodb
+
+fos_user:
+    db_driver:      orm # can be orm or odm
+    firewall_name:  main
+    user_class:     Site\FrontEndBundle\Entity\Users
+
+
+    group:
+        group_class:   Site\FrontEndBundle\Entity\Groups
+        group_manager: sonata.user.orm.group_manager                    # If you're using doctrine orm (use sonata.user.mongodb.user_manager for mongodb)
+
+    service:
+        user_manager: sonata.user.orm.user_manager                      # If you're using doctrine orm (use sonata.user.mongodb.group_manager for mongodb)

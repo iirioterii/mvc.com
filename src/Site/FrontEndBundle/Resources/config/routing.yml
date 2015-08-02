@@ -39,4 +39,3 @@ gallery_page:
 contacts_page:
     path: /contacts
     defaults: { _controller: SiteFrontEndBundle:Main:contacts }
-    

@@ -38,9 +38,8 @@
                                            {% for tag in post.getTags %}
                                                <a href="{{url('posts_by_tag', {'slug':tag.slug})}}">{{ tag.name }} &nbsp;</a>
                                            {% endfor %}
-                                           {{dump(post)}}
-                                        </p>{{dump(post.getCategory)}}
-                                        <p><a href="{{url('posts_by_cat', {'slug':post.slug})}}">{{post.getCategory}}</a></p>
+                                        </p>
+                                        <p><a href="{{url('posts_by_cat', {'slug':post.getCategory.getSlug})}}">{{post.getCategory}}</a></p>
    	   			   </li>
                     
    	   			   <div class="clearfix"> </div>
