@@ -7,6 +7,8 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: ru
+#    sonata.user.admin.user.entity: Site\FrontEndBundle\Entity\Users
+#    sonata.user.admin.group.entity: Site\FrontEndBundle\Entity\Groups
 
 framework:
     #esi:             ~
@@ -72,6 +74,8 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: auto
 
+sonata_admin:
+    title: Панель управления
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -88,12 +92,17 @@ sonata_block:
         # Enable the SonataAdminBundle block
         sonata.user.block.menu:    # used to display the menu in profile pages
         sonata.user.block.account: # used to display menu option (login option)
+        sonata.block.service.text:
         sonata.admin.block.admin_list:
-            contexts:   [admin]
+            
 
 sonata_user:
     security_acl: true
     manager_type: orm # can be orm or mongodb
+    class:                  
+        user:               Site\FrontEndBundle\Entity\Users
+        group:              Site\FrontEndBundle\Entity\Groups
+        
 
 fos_user:
     db_driver:      orm # can be orm or odm

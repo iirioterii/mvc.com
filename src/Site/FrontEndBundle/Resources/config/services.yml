@@ -39,4 +39,9 @@ services:
         class: Site\FrontEndBundle\Service\SortManager
         arguments:
             - @service_container
+            
+    post_manager:
+        class: Site\FrontEndBundle\Service\PostManager
+        arguments:
+            - @service_container
     

@@ -13,7 +13,10 @@ class MainController extends Controller
      
     public function aboutAction() 
     {
-        return $this->render('SiteFrontEndBundle::about.html.twig');
+        $em=$this->get('doctrine.orm.entity_manager');
+        $category=$em->getRepository('SiteFrontEndBundle:Category')->findAll();
+        $tags=$em->getRepository('SiteFrontEndBundle:Tags')->findAll();
+        return $this->render('SiteFrontEndBundle::about.html.twig', array('category'=>$category, 'tags'=>$tags));
         
     }
     
@@ -32,6 +35,14 @@ class MainController extends Controller
         return $this->render('SiteFrontEndBundle::contacts.html.twig');
     }
     
+    public function dataAction() 
+    {
+        $request = $this->getRequest();
+        $data = $request->get('data');
+        $posts=$this->get('PostManager')->createPost($data);
+        return $this->redirectToRoute('about_page');
+        
+    }
 
     
 }

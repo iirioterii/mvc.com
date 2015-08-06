@@ -16,7 +16,7 @@ class CategoryAdmin extends BaseAdmin
         $formMapper
             ->add('name', null, array('label' => 'Имя категории'))
             ->add('created',null, array('label'=>'Дата'))
-            ->add('slug')
+            
         ;
     }
 
@@ -26,6 +26,7 @@ class CategoryAdmin extends BaseAdmin
         $datagridMapper
             ->add('name')
             ->add('created')
+            
         ;
     }
 
@@ -35,8 +36,13 @@ class CategoryAdmin extends BaseAdmin
         $listMapper
             ->addIdentifier('name')
             ->add('created')
+                
             
             
         ;
+    }
+    
+    function prePersist($object) {
+        $object->setSlug($this->transliterate($object->getName()));
     }
 }

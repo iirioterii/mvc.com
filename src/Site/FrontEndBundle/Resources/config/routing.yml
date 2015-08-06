@@ -24,6 +24,10 @@ posts_by_cat:
     requirements:
         page: \d+
         
+data:
+    path: /data
+    defaults: { _controller: SiteFrontEndBundle:Main:data }
+    
 about_page:
     path: /about
     defaults: { _controller: SiteFrontEndBundle:Main:about }
